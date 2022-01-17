@@ -12,14 +12,14 @@
       android:strokeColor="#3465A4"
       android:fillType="evenOdd"/>
   <path
-      android:pathData="M5250,1428L5049,927 5450,927 5250,1428Z"
+      android:pathData="M5250,1428L4849,927 5650,927 5250,1428Z"
       android:strokeLineJoin="round"
       android:strokeWidth="28.222"
       android:fillColor="#3465A4"
       android:strokeColor="#00000000"
       android:fillType="evenOdd"/>
   <path
-      android:pathData="M5250,1428L5049,927 5450,927 5250,1428Z"
+      android:pathData="M5250,1428L4849,927 5650,927 5250,1428Z"
       android:strokeLineJoin="round"
       android:strokeWidth="28.222"
       android:fillColor="#00000000"
