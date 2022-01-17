@@ -24,7 +24,7 @@ allprojects {
 
 ```gradle
 dependencies {
-  implementation 'com.github.leondzn:simple-analog-clock:${version}'
+  implementation 'com.github.woheller69:AltimeterView:-SNAPSHOT'
 }
 ```
 
@@ -44,7 +44,7 @@ dependencies {
 
 **The following XML attributes are supported:**
 
-`app:faceTint, app:hourTint, app:minuteTint, app:secondTint`
+`app:backTint, app:dialTint, app:faceTint, app:hourTint, app:minuteTint, app:secondTint`
 
 to colorize the clock's face and hands.
 
@@ -54,7 +54,7 @@ You can manually set the individual hands' rotation value given a specific angle
 
 You can also provide custom drawables for the clock using
 
-`app:faceDrawable, app:hourDrawable, app:minuteDrawable, app:secondDrawable`
+`app:backDrawable, app:dialDrawable, app:faceDrawable, app:hourDrawable, app:minuteDrawable, app:secondDrawable`
 
 More info on providing custom drawables are detailed below.
 
@@ -79,7 +79,7 @@ To use exact altitude values, use the following methods:
 
 Similar to the XML attributes, you can also provide custom drawables to use with the analog clock:
 
-`setFaceDrawable(Drawable), setHourDrawable(Drawable), setMinuteDrawable(Drawable), setSecondDrawable(Drawable)`
+`setBackDrawable(Drawable), setDialDrawable(Drawable), setFaceDrawable(Drawable), setHourDrawable(Drawable), setMinuteDrawable(Drawable), setSecondDrawable(Drawable)`
 
 ## Using Custom Drawables
 
