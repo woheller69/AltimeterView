@@ -1,13 +1,10 @@
-# simple-analog-clock 
+# Altimeter 
 
-[![Release](https://jitpack.io/v/leondzn/simple-analog-clock.svg)](https://jitpack.io/#leondzn/simple-analog-clock)
-[![API](https://img.shields.io/badge/API-21%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=21)
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-simple--analog--clock-green.svg?style=flat )]( https://android-arsenal.com/details/1/7481 )
-
-A simple clock view. The clock drawables can be changed with
+A simple altimeter view. The drawables can be changed with
 your own custom assets.
 
-![Preview](previews/preview.png)
+Taken from com.leondzn.simpleanalogclock
+https://github.com/leondzn/simple-analog-clock
 
 ## Prerequisites
 
@@ -36,7 +33,7 @@ dependencies {
 
 ### XML
 ```xml
-<com.leondzn.simpleanalogclock.SimpleAnalogClock
+<org.woheller69.altimeterview.AltimeterView
     android:id="@+id/clock"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -64,9 +61,9 @@ More info on providing custom drawables are detailed below.
 ### Java
 
 ```java
-SimpleAnalogClock clock = findViewById(...);
+AltimeterView altimeter = findViewById(...);
 
-clock.setSecondTint(...)
+altimeter.setSecondTint(...)
   .setTime(hour, minute, second);
 ```
 
@@ -76,12 +73,9 @@ You can rotate the clock hands individually using the following methods:
 
 Using the methods above requires you to calculate the corresponding angles for each time value.
 
-To use exact time values, use the following methods:
+To use exact altitude values, use the following methods:
 
-`setTime(int hour, int minute, int second)` or `setTime(int hour, int munute, int second, int millis)`
-
-Using the millisecond parameter allows for the second hand to turn more smoothly as opposed to traditional analog
-clock "ticking" behavior.
+`setAltitude(double altitude)`
 
 Similar to the XML attributes, you can also provide custom drawables to use with the analog clock:
 
@@ -92,28 +86,8 @@ Similar to the XML attributes, you can also provide custom drawables to use with
 Simple default clock face and hands are provided but you are free to use custom drawables
 provided that they follow these guidelines:
 
-* All 4 layers (face, hour hand, minute hand, second hand) should all be the same image size
+* All 6 layers (back, face, dial, hour hand, minute hand, second hand) should all be the same image size
 * The images should be square
 * Clock hands should be pointing at the 12 o' clock position
 * SVG or PNG can be used
 
-**Example:**
-
-
-![Face Drawable](previews/face.png)
-
-Face
-
-
-
-![Hour Drawable](previews/hour.png)
-
-Short hand
-
-![Minute Drawable](previews/minute.png)
-
-Long hand
-
-![Second Drawable](previews/second.png)
-
-Second hand
