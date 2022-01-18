@@ -63,13 +63,13 @@ More info on providing custom drawables are detailed below.
 ```java
 AltimeterView altimeter = findViewById(...);
 
-altimeter.set1kHandTint(...)
+altimeter.setHand1kTint(...)
   .setAltitude(altitude);
 ```
 
 You can rotate the clock hands individually using the following methods:
 
-`rotate10kHand(angle), rotate1kHand(angle), rotate100Hand(angle)`
+`setHand10kRotation(angle), setHand1kRotation(angle), setHand100Rotation(angle)`
 
 Using the methods above requires you to calculate the corresponding angles for each value.
 

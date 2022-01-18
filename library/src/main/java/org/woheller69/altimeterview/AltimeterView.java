@@ -28,9 +28,9 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.widget.AppCompatImageView;
 
 public class AltimeterView extends RelativeLayout {
-  private final AppCompatImageView back;
-  private final AppCompatImageView ticks;
-  private final AppCompatImageView numbers;
+  private final AppCompatImageView backView;
+  private final AppCompatImageView ticksView;
+  private final AppCompatImageView numbersView;
   private final AppCompatImageView hand10kView;
   private final AppCompatImageView hand1kView;
   private final AppCompatImageView hand100View;
@@ -54,9 +54,9 @@ public class AltimeterView extends RelativeLayout {
 
     inflate(context, R.layout.altimeter, this);
 
-    back = findViewById(R.id.back);
-    ticks = findViewById(R.id.ticks);
-    numbers = findViewById(R.id.numbers);
+    backView = findViewById(R.id.back);
+    ticksView = findViewById(R.id.ticks);
+    numbersView = findViewById(R.id.numbers);
     hand10kView = findViewById(R.id.hand_10k);
     hand1kView = findViewById(R.id.hand_1k);
     hand100View = findViewById(R.id.hand_100);
@@ -87,30 +87,30 @@ public class AltimeterView extends RelativeLayout {
     if (backColor != -1) setBackTint(backColor);
     if (ticksColor != -1) setTicksTint(ticksColor);
     if (numbersColor != -1) setNumbersTint(numbersColor);
-    if (hand10kColor != -1) set10kHandTint(hand10kColor);
-    if (hand1kColor != -1) set1kHandTint(hand1kColor);
-    if (hand100Color != -1) set100HandTint(hand100Color);
+    if (hand10kColor != -1) setHand10kTint(hand10kColor);
+    if (hand1kColor != -1) setHand1kTint(hand1kColor);
+    if (hand100Color != -1) setHand100Tint(hand100Color);
 
-    rotate10kHand(typedArray.getFloat(R.styleable.AltimeterView_hand10kRotation, 0));
-    rotate1kHand(typedArray.getFloat(R.styleable.AltimeterView_hand1kRotation, 0));
-    rotate100Hand(typedArray.getFloat(R.styleable.AltimeterView_hand100Rotation, 0));
+    setHand10kRotation(typedArray.getFloat(R.styleable.AltimeterView_hand10kRotation, 0));
+    setHand1kRotation(typedArray.getFloat(R.styleable.AltimeterView_hand1kRotation, 0));
+    setHand100Rotation(typedArray.getFloat(R.styleable.AltimeterView_hand100Rotation, 0));
   }
 
   @SuppressWarnings("WeakerAccess")
   public AltimeterView setBackDrawable(Drawable drawable) {
-    back.setImageDrawable(drawable);
+    backView.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings("WeakerAccess")
   public AltimeterView setTicksDrawable(Drawable drawable) {
-    ticks.setImageDrawable(drawable);
+    ticksView.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings("WeakerAccess")
   public AltimeterView setNumbersDrawable(Drawable drawable) {
-    numbers.setImageDrawable(drawable);
+    numbersView.setImageDrawable(drawable);
     return this;
   }
 
@@ -133,19 +133,19 @@ public class AltimeterView extends RelativeLayout {
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotate10kHand(float angle) {
+  public AltimeterView setHand10kRotation(float angle) {
     hand10kView.setRotation(angle);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotate1kHand(float angle) {
+  public AltimeterView setHand1kRotation(float angle) {
     hand1kView.setRotation(angle);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotate100Hand(float angle) {
+  public AltimeterView setHand100Rotation(float angle) {
     hand100View.setRotation(angle);
     return this;
   }
@@ -153,45 +153,45 @@ public class AltimeterView extends RelativeLayout {
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
   public AltimeterView setAltitude(double value) {
 
-    rotate100Hand((float) ((float) 360*(value%1000)/1000));
-    rotate1kHand((float) ((float) 360*(value%10000)/10000));
-    rotate10kHand((float) ((float) 360*(value%100000)/100000));
+    setHand100Rotation((float) ((float) 360*(value%1000)/1000));
+    setHand1kRotation((float) ((float) 360*(value%10000)/10000));
+    setHand10kRotation((float) ((float) 360*(value%100000)/100000));
 
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
   public AltimeterView setBackTint(int color) {
-    back.setColorFilter(color);
+    backView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
   public AltimeterView setTicksTint(int color) {
-    ticks.setColorFilter(color);
+    ticksView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
   public AltimeterView setNumbersTint(int color) {
-    numbers.setColorFilter(color);
+    numbersView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView set10kHandTint(int color) {
+  public AltimeterView setHand10kTint(int color) {
     hand10kView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView set1kHandTint(int color) {
+  public AltimeterView setHand1kTint(int color) {
     hand1kView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView set100HandTint(int color) {
+  public AltimeterView setHand100Tint(int color) {
     hand100View.setColorFilter(color);
     return this;
   }
