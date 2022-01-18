@@ -29,11 +29,11 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 public class AltimeterView extends RelativeLayout {
   private final AppCompatImageView back;
-  private final AppCompatImageView face;
-  private final AppCompatImageView dial;
-  private final AppCompatImageView hour;
-  private final AppCompatImageView minute;
-  private final AppCompatImageView second;
+  private final AppCompatImageView ticks;
+  private final AppCompatImageView numbers;
+  private final AppCompatImageView hand10kView;
+  private final AppCompatImageView hand1kView;
+  private final AppCompatImageView hand100View;
 
   public AltimeterView(Context context) {
     this(context, null);
@@ -52,48 +52,48 @@ public class AltimeterView extends RelativeLayout {
   public AltimeterView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
 
-    inflate(context, R.layout.analog_clock, this);
+    inflate(context, R.layout.altimeter, this);
 
     back = findViewById(R.id.back);
-    face = findViewById(R.id.face);
-    dial = findViewById(R.id.dial);
-    hour = findViewById(R.id.hour_hand);
-    minute = findViewById(R.id.minute_hand);
-    second = findViewById(R.id.second_hand);
+    ticks = findViewById(R.id.ticks);
+    numbers = findViewById(R.id.numbers);
+    hand10kView = findViewById(R.id.hand_10k);
+    hand1kView = findViewById(R.id.hand_1k);
+    hand100View = findViewById(R.id.hand_100);
 
     TypedArray typedArray = context.getTheme().obtainStyledAttributes(
         attrs, R.styleable.AltimeterView, defStyleAttr, defStyleRes);
 
     Drawable backDrawable = typedArray.getDrawable(R.styleable.AltimeterView_backDrawable);
-    Drawable faceDrawable = typedArray.getDrawable(R.styleable.AltimeterView_faceDrawable);
-    Drawable dialDrawable = typedArray.getDrawable(R.styleable.AltimeterView_dialDrawable);
-    Drawable hourDrawable = typedArray.getDrawable(R.styleable.AltimeterView_hourDrawable);
-    Drawable minuteDrawable = typedArray.getDrawable(R.styleable.AltimeterView_minuteDrawable);
-    Drawable secondDrawable = typedArray.getDrawable(R.styleable.AltimeterView_secondDrawable);
+    Drawable faceDrawable = typedArray.getDrawable(R.styleable.AltimeterView_ticksDrawable);
+    Drawable dialDrawable = typedArray.getDrawable(R.styleable.AltimeterView_numbersDrawable);
+    Drawable hourDrawable = typedArray.getDrawable(R.styleable.AltimeterView_hand10kDrawable);
+    Drawable minuteDrawable = typedArray.getDrawable(R.styleable.AltimeterView_hand1kDrawable);
+    Drawable secondDrawable = typedArray.getDrawable(R.styleable.AltimeterView_hand100Drawable);
 
     setBackDrawable(backDrawable != null ? backDrawable : context.getDrawable(R.drawable.ic_altimeter_back))
-        .setFaceDrawable(faceDrawable != null ? faceDrawable : context.getDrawable(R.drawable.ic_altimeter_face))
-        .setDialDrawable(faceDrawable != null ? dialDrawable : context.getDrawable(R.drawable.ic_altimeter_dial))
-        .setHourDrawable(hourDrawable != null ? hourDrawable : context.getDrawable(R.drawable.ic_altimeter_10k))
-        .setMinuteDrawable(minuteDrawable != null ? minuteDrawable : context.getDrawable(R.drawable.ic_altimeter_1k))
-        .setSecondDrawable(secondDrawable != null ? secondDrawable : context.getDrawable(R.drawable.ic_altimeter_1));
+        .setTicksDrawable(faceDrawable != null ? faceDrawable : context.getDrawable(R.drawable.ic_altimeter_ticks))
+        .setNumbersDrawable(faceDrawable != null ? dialDrawable : context.getDrawable(R.drawable.ic_altimeter_numbers))
+        .setHand10kDrawable(hourDrawable != null ? hourDrawable : context.getDrawable(R.drawable.ic_altimeter_hand_10k))
+        .setHand1kDrawable(minuteDrawable != null ? minuteDrawable : context.getDrawable(R.drawable.ic_altimeter_hand_1k))
+        .setHand100Drawable(secondDrawable != null ? secondDrawable : context.getDrawable(R.drawable.ic_altimeter_hand_100));
 
     int backColor = typedArray.getColor(R.styleable.AltimeterView_backTint, -1);
-    int faceColor = typedArray.getColor(R.styleable.AltimeterView_faceTint, -1);
-    int dialColor = typedArray.getColor(R.styleable.AltimeterView_dialTint, -1);
-    int hourColor = typedArray.getColor(R.styleable.AltimeterView_hourTint, -1);
-    int minuteColor = typedArray.getColor(R.styleable.AltimeterView_minuteTint, -1);
-    int secondColor = typedArray.getColor(R.styleable.AltimeterView_secondTint, -1);
+    int ticksColor = typedArray.getColor(R.styleable.AltimeterView_ticksTint, -1);
+    int numbersColor = typedArray.getColor(R.styleable.AltimeterView_numbersTint, -1);
+    int hand10kColor = typedArray.getColor(R.styleable.AltimeterView_hand10kTint, -1);
+    int hand1kColor = typedArray.getColor(R.styleable.AltimeterView_hand1kTint, -1);
+    int hand100Color = typedArray.getColor(R.styleable.AltimeterView_hand100Tint, -1);
     if (backColor != -1) setBackTint(backColor);
-    if (faceColor != -1) setFaceTint(faceColor);
-    if (dialColor != -1) setDialTint(dialColor);
-    if (hourColor != -1) setHourTint(hourColor);
-    if (minuteColor != -1) setMinuteTint(minuteColor);
-    if (secondColor != -1) setSecondTint(secondColor);
+    if (ticksColor != -1) setTicksTint(ticksColor);
+    if (numbersColor != -1) setNumbersTint(numbersColor);
+    if (hand10kColor != -1) set10kHandTint(hand10kColor);
+    if (hand1kColor != -1) set1kHandTint(hand1kColor);
+    if (hand100Color != -1) set100HandTint(hand100Color);
 
-    rotateHourHand(typedArray.getFloat(R.styleable.AltimeterView_hourRotation, 0));
-    rotateMinuteHand(typedArray.getFloat(R.styleable.AltimeterView_minuteRotation, 0));
-    rotateSecondHand(typedArray.getFloat(R.styleable.AltimeterView_secondRotation, 0));
+    rotate10kHand(typedArray.getFloat(R.styleable.AltimeterView_hand10kRotation, 0));
+    rotate1kHand(typedArray.getFloat(R.styleable.AltimeterView_hand1kRotation, 0));
+    rotate100Hand(typedArray.getFloat(R.styleable.AltimeterView_hand100Rotation, 0));
   }
 
   @SuppressWarnings("WeakerAccess")
@@ -103,59 +103,59 @@ public class AltimeterView extends RelativeLayout {
   }
 
   @SuppressWarnings("WeakerAccess")
-  public AltimeterView setFaceDrawable(Drawable drawable) {
-    face.setImageDrawable(drawable);
+  public AltimeterView setTicksDrawable(Drawable drawable) {
+    ticks.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings("WeakerAccess")
-  public AltimeterView setDialDrawable(Drawable drawable) {
-    dial.setImageDrawable(drawable);
+  public AltimeterView setNumbersDrawable(Drawable drawable) {
+    numbers.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings("WeakerAccess")
-  public AltimeterView setHourDrawable(Drawable drawable) {
-    hour.setImageDrawable(drawable);
+  public AltimeterView setHand10kDrawable(Drawable drawable) {
+    hand10kView.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings("WeakerAccess")
-  public AltimeterView setMinuteDrawable(Drawable drawable) {
-    minute.setImageDrawable(drawable);
+  public AltimeterView setHand1kDrawable(Drawable drawable) {
+    hand1kView.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setSecondDrawable(Drawable drawable) {
-    second.setImageDrawable(drawable);
+  public AltimeterView setHand100Drawable(Drawable drawable) {
+    hand100View.setImageDrawable(drawable);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotateHourHand(float angle) {
-    hour.setRotation(angle);
+  public AltimeterView rotate10kHand(float angle) {
+    hand10kView.setRotation(angle);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotateMinuteHand(float angle) {
-    minute.setRotation(angle);
+  public AltimeterView rotate1kHand(float angle) {
+    hand1kView.setRotation(angle);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView rotateSecondHand(float angle) {
-    second.setRotation(angle);
+  public AltimeterView rotate100Hand(float angle) {
+    hand100View.setRotation(angle);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
   public AltimeterView setAltitude(double value) {
 
-    rotateSecondHand((float) ((float) 360*(value%1000)/1000));
-    rotateMinuteHand((float) ((float) 360*(value%10000)/10000));
-    rotateHourHand((float) ((float) 360*(value%100000)/100000));
+    rotate100Hand((float) ((float) 360*(value%1000)/1000));
+    rotate1kHand((float) ((float) 360*(value%10000)/10000));
+    rotate10kHand((float) ((float) 360*(value%100000)/100000));
 
     return this;
   }
@@ -167,32 +167,32 @@ public class AltimeterView extends RelativeLayout {
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setFaceTint(int color) {
-    face.setColorFilter(color);
+  public AltimeterView setTicksTint(int color) {
+    ticks.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setDialTint(int color) {
-    dial.setColorFilter(color);
+  public AltimeterView setNumbersTint(int color) {
+    numbers.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setHourTint(int color) {
-    hour.setColorFilter(color);
+  public AltimeterView set10kHandTint(int color) {
+    hand10kView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setMinuteTint(int color) {
-    minute.setColorFilter(color);
+  public AltimeterView set1kHandTint(int color) {
+    hand1kView.setColorFilter(color);
     return this;
   }
 
   @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
-  public AltimeterView setSecondTint(int color) {
-    second.setColorFilter(color);
+  public AltimeterView set100HandTint(int color) {
+    hand100View.setColorFilter(color);
     return this;
   }
 }

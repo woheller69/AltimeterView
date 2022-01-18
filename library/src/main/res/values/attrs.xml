@@ -17,22 +17,22 @@
 
 <resources>
 <declare-styleable name="AltimeterView">
-  <attr name="dialDrawable" format="reference" />
+  <attr name="numbersDrawable" format="reference" />
   <attr name="backDrawable" format="reference" />
-  <attr name="faceDrawable" format="reference" />
-  <attr name="hourDrawable" format="reference" />
-  <attr name="minuteDrawable" format="reference" />
-  <attr name="secondDrawable" format="reference" />
+  <attr name="ticksDrawable" format="reference" />
+  <attr name="hand10kDrawable" format="reference" />
+  <attr name="hand1kDrawable" format="reference" />
+  <attr name="hand100Drawable" format="reference" />
 
-  <attr name="dialTint" format="color"/>
+  <attr name="numbersTint" format="color"/>
   <attr name="backTint" format="color"/>
-  <attr name="faceTint" format="color"/>
-  <attr name="hourTint" format="color"/>
-  <attr name="minuteTint" format="color"/>
-  <attr name="secondTint" format="color"/>
+  <attr name="ticksTint" format="color"/>
+  <attr name="hand10kTint" format="color"/>
+  <attr name="hand1kTint" format="color"/>
+  <attr name="hand100Tint" format="color"/>
 
-  <attr name="hourRotation" format="float" />
-  <attr name="minuteRotation" format="float" />
-  <attr name="secondRotation" format="float" />
+  <attr name="hand10kRotation" format="float" />
+  <attr name="hand1kRotation" format="float" />
+  <attr name="hand100Rotation" format="float" />
 </declare-styleable>
 </resources>

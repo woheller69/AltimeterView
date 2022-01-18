@@ -34,27 +34,27 @@ dependencies {
 ### XML
 ```xml
 <org.woheller69.altimeterview.AltimeterView
-    android:id="@+id/clock"
+    android:id="@+id/altimeter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    app:hourTint="@color/colorPrimary"                                        
-    app:secondTint="@color/colorAccent" />
+    app:hand10kTint="@color/colorPrimary"                                        
+    app:hand100Tint="@color/colorAccent" />
 ```
 
 **The following XML attributes are supported:**
 
-`app:backTint, app:dialTint, app:faceTint, app:hourTint, app:minuteTint, app:secondTint`
+`app:backTint, app:numbersTint, app:ticksTint, app:hand10kTint, app:hand1kTint, app:hand100Tint`
 
-to colorize the clock's face and hands.
+to colorize the altimeters's elements.
 
 You can manually set the individual hands' rotation value given a specific angle using
 
-`app:hourRotation, app:minuteRotation, app:secondRotation`
+`app:hand10kRotation, app:hand1kRotation, app:hand100Rotation`
 
-You can also provide custom drawables for the clock using
+You can also provide custom drawables for the altimeter using
 
-`app:backDrawable, app:dialDrawable, app:faceDrawable, app:hourDrawable, app:minuteDrawable, app:secondDrawable`
+`app:backDrawable, app:numbersDrawable, app:ticksDrawable, app:hand10kDrawable, app:hand1kDrawable, app:hand100Drawable`
 
 More info on providing custom drawables are detailed below.
 
@@ -63,31 +63,31 @@ More info on providing custom drawables are detailed below.
 ```java
 AltimeterView altimeter = findViewById(...);
 
-altimeter.setSecondTint(...)
-  .setTime(hour, minute, second);
+altimeter.set1kHandTint(...)
+  .setAltitude(altitude);
 ```
 
 You can rotate the clock hands individually using the following methods:
 
-`rotateHourHand(angle), rotateMinuteHand(angle), rotateSecondHand(angle)`
+`rotate10kHand(angle), rotate1kHand(angle), rotate100Hand(angle)`
 
-Using the methods above requires you to calculate the corresponding angles for each time value.
+Using the methods above requires you to calculate the corresponding angles for each value.
 
 To use exact altitude values, use the following methods:
 
 `setAltitude(double altitude)`
 
-Similar to the XML attributes, you can also provide custom drawables to use with the analog clock:
+Similar to the XML attributes, you can also provide custom drawables to use with the altimeter:
 
-`setBackDrawable(Drawable), setDialDrawable(Drawable), setFaceDrawable(Drawable), setHourDrawable(Drawable), setMinuteDrawable(Drawable), setSecondDrawable(Drawable)`
+`setBackDrawable(Drawable), setNumbersDrawable(Drawable), setTicksDrawable(Drawable), setHand10kDrawable(Drawable), setHand1kDrawable(Drawable), setHand100Drawable(Drawable)`
 
 ## Using Custom Drawables
 
-Simple default clock face and hands are provided but you are free to use custom drawables
+Default drawables are provided but you are free to use custom drawables
 provided that they follow these guidelines:
 
-* All 6 layers (back, face, dial, hour hand, minute hand, second hand) should all be the same image size
+* All 6 layers (back, ticks, numbers, 10k-hand, 1k-hand, 100-hand) should all be the same image size
 * The images should be square
-* Clock hands should be pointing at the 12 o' clock position
+* Clock hands should be pointing at the 0 position
 * SVG or PNG can be used
 

@@ -27,33 +27,33 @@
     android:layout_centerInParent="true"
     android:src="@drawable/ic_altimeter_back"/>
   <androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/face"
+    android:id="@+id/ticks"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:src="@drawable/ic_altimeter_face"/>
+    android:src="@drawable/ic_altimeter_ticks"/>
   <androidx.appcompat.widget.AppCompatImageView
-      android:id="@+id/dial"
+      android:id="@+id/numbers"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:layout_centerInParent="true"
-      android:src="@drawable/ic_altimeter_dial"/>
+      android:src="@drawable/ic_altimeter_numbers"/>
   <androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/hour_hand"
+    android:id="@+id/hand_10k"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:src="@drawable/ic_altimeter_10k"/>
+    android:src="@drawable/ic_altimeter_hand_10k"/>
   <androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/minute_hand"
+    android:id="@+id/hand_1k"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:src="@drawable/ic_altimeter_1k"/>
+    android:src="@drawable/ic_altimeter_hand_1k"/>
   <androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/second_hand"
+    android:id="@+id/hand_100"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:src="@drawable/ic_altimeter_1"/>
+    android:src="@drawable/ic_altimeter_hand_100"/>
 </RelativeLayout>
