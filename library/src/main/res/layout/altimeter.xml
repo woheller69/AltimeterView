@@ -31,7 +31,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:src="@drawable/ic_altimeter_ticks"/>
+    android:src="@drawable/ic_altimeter_ticks2"/>
   <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/numbers"
       android:layout_width="match_parent"

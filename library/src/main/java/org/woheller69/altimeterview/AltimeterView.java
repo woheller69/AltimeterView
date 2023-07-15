@@ -72,7 +72,7 @@ public class AltimeterView extends RelativeLayout {
     Drawable secondDrawable = typedArray.getDrawable(R.styleable.AltimeterView_hand100Drawable);
 
     setBackDrawable(backDrawable != null ? backDrawable : context.getDrawable(R.drawable.ic_altimeter_back))
-        .setTicksDrawable(faceDrawable != null ? faceDrawable : context.getDrawable(R.drawable.ic_altimeter_ticks))
+        .setTicksDrawable(faceDrawable != null ? faceDrawable : context.getDrawable(R.drawable.ic_altimeter_ticks2))
         .setNumbersDrawable(dialDrawable != null ? dialDrawable : context.getDrawable(R.drawable.ic_altimeter_numbers2))
         .setHand10kDrawable(hourDrawable != null ? hourDrawable : context.getDrawable(R.drawable.ic_altimeter_hand_10k))
         .setHand1kDrawable(minuteDrawable != null ? minuteDrawable : context.getDrawable(R.drawable.ic_altimeter_hand_1k))
