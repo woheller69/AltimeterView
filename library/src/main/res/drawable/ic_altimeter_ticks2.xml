@@ -3,15 +3,7 @@
     android:height="105dp"
     android:viewportWidth="10501"
     android:viewportHeight="10501">
-  <path
-      android:pathData="M5250,10500L0,10500 0,0 10500,0 10500,10500 5250,10500Z"
-      android:strokeAlpha="0.529"
-      android:strokeLineJoin="round"
-      android:strokeWidth="28.222"
-      android:fillColor="#FFFFFF"
-      android:fillAlpha="0.529"
-      android:strokeColor="#FFFFFF"
-      android:fillType="evenOdd"/>
+
   <path
       android:pathData="M5222,10406L5222,9406"
       android:strokeLineJoin="round"
