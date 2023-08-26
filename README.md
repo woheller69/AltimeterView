@@ -3,6 +3,8 @@
 A simple altimeter view. The drawables can be changed with
 your own custom assets.
 
+<img src="altimeter01.png" width="200"/>
+
 Taken from com.leondzn.simpleanalogclock
 https://github.com/leondzn/simple-analog-clock
 
